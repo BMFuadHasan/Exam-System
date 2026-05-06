@@ -1,0 +1,30 @@
+{% extends 'exams/base.html' %}
+
+{% block title %}Exam Results{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 text-center">
+        <div class="card shadow p-5 border-0 rounded-4" style="background: linear-gradient(to bottom right, #ffffff, #f0f4f8);">
+            <div class="mb-4">
+                <span style="font-size: 4rem;">Congratulations!</span>
+            </div>
+            <h2 class="mb-3" style="color: #1e3c72; font-weight: 700;">Exam Completed!</h2>
+            <h4 class="text-muted mb-4">{{ submission.exam.title }}</h4>
+            
+            <div class="p-4 rounded-3 mb-4" style="background-color: #e8f0fe;">
+                <h1 class="display-4 mb-0" style="color: #2a5298; font-weight: bold;">
+                    {{ submission.score }} / {{ submission.total_questions }}
+                </h1>
+                <p class="text-secondary mt-2">Your final score</p>
+            </div>
+            
+            <p class="text-muted mb-4">Submitted on: {{ submission.submitted_at|date:"F j, Y, g:i a" }}</p>
+            
+            <div>
+                <a href="{% url 'exam_list' %}" class="btn btn-primary px-4 py-2 me-2">Back to Exams</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
